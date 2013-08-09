@@ -1,27 +1,57 @@
 require.config({
-  baseUrl: "./"
+  baseUrl: "./",
+  paths: {
+    "jquery": 'lib/jquery'
+  }
 });
 
-require(['src/tetrisConfig','src/Grid','src/DB','src/Renderer','src/Counter','src/GameController'],function(config,Grid,DB,Renderer,Counter,GameController){
+require(['jquery','src/level', 'src/models/Platform', 'lib/Element','src/models/Block','src/models/Ball','lib/Timer','lib/CollisionDetector','src/Store'],
+  function($, level, Platform, Element, Block, Ball, Timer, CollisionDetector, Store){
 
-  DB.grid = new Grid({
-    cellSize: config.cellSize,
-    columns: 8,
-    rows: 18
-  });
+  level();
 
-  var grid = DB.grid;
+  var balls = [
 
-  DB.counter = new Counter();
+    new Ball({
+      radius : 5,
+      x : 160,
+      y : 170,
+      color : '#800',
+      speed : [2,4]
+    })
 
-  Renderer.renderGrid(grid);
+  ]
 
-  $(document).on('keydown', function(e){
-    if(e.keyCode === 32 && $('#start-screen').css('display') !== 'none'){
-      GameController.prepare();
-      GameController.start();
+  var platform = new Platform({
+
+    height : 10,
+    width : 80,
+    color : '#eee',
+    x : 150,
+    y : 240
+
+  })
+
+  balls.forEach(function(ball){
+    (new CollisionDetector(ball, "Block", function(t){
+      t.destroy();
+    })).start();
+    (new CollisionDetector(ball, "Element", function(t){
+    })).start();
+    (new CollisionDetector(ball, "Platform", function(t){
+    })).start();
+  })
+
+  var timer = new Timer({
+    fps : 30,
+    run : function(){
+      balls.forEach(function(ball){
+        ball.move();
+      });
     }
-  });
+  })
+
+  timer.start();
 
 });
 

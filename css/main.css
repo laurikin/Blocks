@@ -1,86 +1,11 @@
-body{
-  background-color: #444;
-}
-
-#wrapper {
-  max-width: 380px;
-  height: 453px;
-  width: inherit;
-  margin: 30px auto;
-  overflow: hidden;
-  position: relative;
-}
-
-#tetris-container{
-  float:left;
-  position: relative;
-  width: 200px;
-  min-height: 500px;
-}
-#start-screen{
-  float:left;
-  width: 162px;
-  height: 453px;
-  position: absolute;
-  background: #333;
-  padding: 20px 20px;
-  opacity: 0.9;
-  top: 0;
-  left: 0;
-  z-index: 9999;
-}
-#side{
-  float: right;
-  padding: 0 15px;
-}
-
-#score{
-  width: 100%;
-  font-family: verdana, "sans-serif";
-  font-size: 18px;
-  font-weight: 700;
-  color: #eee;
-  margin: 10px 0;
-}
-
-#next-block{
-  position: relative;
+html {
   background-color: #333;
-  height: 120px;
-  width: 150px;
 }
 
-.element{
-  background-color: #f00;
-  border: solid 1px white;
-  z-index: 1000;
-  position: absolute;
-}
-
-h4{
-  font-family: verdana, "sans-serif";
-  font-size: 16px;
-  color: #ddd;
-  padding: 0;
-  margin: 5px 0;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  width: 90%;
-}
-
-li{
-  font-family: verdana, "sans-serif";
-  font-size: 14px;
-  line-height: 21px;
-  color: #ddd;
-}
-
-.arrow{
-  float: right;
-  font-weight: 700;
-  font-size: 18px
-}
+#main-container{
+  background-color: #ccc;
+  margin: 70px auto;
+  position: relative;
+  width: 560px;
+  height: 300px;
+},
