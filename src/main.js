@@ -5,8 +5,12 @@ require.config({
   }
 });
 
-require(['jquery','src/level', 'src/models/Platform', 'lib/Element','src/models/Block','src/models/Ball','lib/Timer','lib/CollisionDetector','src/Store'],
-  function($, level, Platform, Element, Block, Ball, Timer, CollisionDetector, Store){
+require(['jquery','lib/Key','src/level', 'src/models/Platform', 'lib/Element','src/models/Block','src/models/Ball','lib/Timer','lib/CollisionDetector','src/Store'],
+  function($, Key, level, Platform, Element, Block, Ball, Timer, CollisionDetector, Store){
+
+  var key = new Key();
+
+  console.log(key);
 
   level();
 
@@ -47,6 +51,12 @@ require(['jquery','src/level', 'src/models/Platform', 'lib/Element','src/models/
     run : function(){
       balls.forEach(function(ball){
         ball.move();
+        if(key.isdown(key.LEFT)){
+          platform.moveLeft();
+        }
+        if(key.isdown(key.RIGHT)){
+          platform.moveRight();
+        }
       });
     }
   })

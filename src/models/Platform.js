@@ -6,24 +6,20 @@ define(['jquery', 'lib/Element'],function($, Element){
 
     Element.call(this,opts, "Platform");
 
-    $(document).on('keydown',function(e){
-    console.log('keydown');
-    switch(e.keyCode){
-      case 37:
-        self.x -= 10;
-        break;
-      case 39:
-        self.x += 10;
-        break;
-    }
-
-  });
-
   }
 
 
   Platform.prototype = Object.create(Element.prototype, {
-
+    moveRight: {
+      value : function(){
+        this.x += 10;
+      }
+    },
+    moveLeft: {
+      value : function(){
+        this.x -= 10;
+      }
+    }
   });
 
   return Platform;
