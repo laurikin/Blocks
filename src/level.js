@@ -39,8 +39,8 @@ define(['lib/Element','src/models/Block'],function(Element,Block){
         (new Block({
           x: 30 + i * 25,
           y: 30 + j * 25,
-          width: 22,
-          height: 22
+          width: 24,
+          height: 24
         })).view.css({ border : "solid 1px #dedede" })
       }
     }
