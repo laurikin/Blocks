@@ -2,8 +2,12 @@ html {
   background-color: #333;
 }
 
+p {
+  margin:0;
+}
+
 #wrapper {
-  width: 650px;
+  width: 680px;
   height: 270px;
   margin: 50px auto;
 }
@@ -49,4 +53,10 @@ aside {
   line-height: 34px;
   font-family: ubuntu, verdana, 'sans-serif';
   padding: 0 10px;
+}
+
+#lives {
+  margin: 0;
+  width: 60px;
+  height: 20px;
 }

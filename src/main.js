@@ -5,10 +5,14 @@ require.config({
   }
 });
 
-require(['jquery','src/Game'],
-  function( $, Game ){
+require(['jquery','src/Game','src/models/LifeWidget'],
+  function( $, Game, LifeWidget ){
 
     var game = new Game();
+
+    $(document).ready(function(){
+      var lifeWidget = new LifeWidget(game.lives, $('#lives'));
+    });
 
     $(document).on('keydown',function(e){
       if(e.keyCode === 32){
