@@ -2,10 +2,51 @@ html {
   background-color: #333;
 }
 
+#wrapper {
+  width: 650px;
+  height: 270px;
+  margin: 50px auto;
+}
+
 #main-container{
-  background-color: #ccc;
-  margin: 70px auto;
+  float:left;
+  background-color: #aaa;
   position: relative;
   width: 560px;
+  height: 270px;
+}
+
+#start-screen, #pause-screen {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 600px;
   height: 300px;
-},
+  background-color: #000;
+  opacity: 0.85;
+  z-index: 2000;
+  text-align: center;
+}
+
+#pause-screen {
+  display: none;
+}
+
+#start-screen p, #pause-screen p{
+  font-size: 22px;
+  color: #ccc;
+  font-weight: 700;
+  line-height: 34px;
+  font-family: ubuntu, verdana, 'sans-serif';
+  padding: 100px;
+}
+
+aside {
+  float: right;
+  font-size: 18px;
+  color: #ccc;
+  font-weight: 700;
+  line-height: 34px;
+  font-family: ubuntu, verdana, 'sans-serif';
+  padding: 0 10px;
+}

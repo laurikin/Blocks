@@ -1,5 +1,5 @@
 define({
-  elements: [],
-  blocks: [],
-  platform: []
+  Element: [],
+  Block: [],
+  Platform: []
 })
