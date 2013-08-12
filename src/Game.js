@@ -13,7 +13,7 @@ define(['jquery', 'src/models/Block', 'src/models/Ball','src/models/Platform','l
 
     this.ball =  new Ball({
       radius : 5,
-      x : 160,
+      x : 230,
       y : 170,
       color : '#800',
     });
@@ -22,7 +22,7 @@ define(['jquery', 'src/models/Block', 'src/models/Ball','src/models/Platform','l
       height : 10,
       width : 50,
       color : '#eee',
-      x : 150,
+      x : 205,
       y : 240
     });
 
@@ -44,7 +44,7 @@ define(['jquery', 'src/models/Block', 'src/models/Ball','src/models/Platform','l
             self.stop();
           }else{
             self.lives.decrement();
-            self.reset();
+            self.startWithNewBall();
           }
         }
         ball.move();
@@ -91,9 +91,7 @@ define(['jquery', 'src/models/Block', 'src/models/Ball','src/models/Platform','l
       value : function() {
         this.clear();
         level.build();
-        this.ball.coordinates = [160,170];
-        this.ball.speed = [0,5];
-        this.platform.coordinates = [150,240];
+        this.reset();
       }
     },
     start : {
@@ -128,6 +126,15 @@ define(['jquery', 'src/models/Block', 'src/models/Ball','src/models/Platform','l
         }
       }
     },
+    startWithNewBall: {
+      value : function() {
+        var $this = this;
+        var start = this.timer.start;
+        this.reset();
+        this.timer.stop();
+        setTimeout( function(){$this.timer.start();} , 500 );
+      }
+    },
     gameOver: {
       value : function() {
         return Store.Block.some(function(block){
@@ -138,9 +145,9 @@ define(['jquery', 'src/models/Block', 'src/models/Ball','src/models/Platform','l
     },
     reset: {
       value : function() {
-        this.ball.coordinates = [160,170];
+        this.ball.coordinates = [230,170];
         this.ball.speed = [0,5];
-        this.platform.coordinates = [150,240];
+        this.platform.coordinates = [205,240];
       }
     },
     clear: {
